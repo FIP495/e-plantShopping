@@ -250,3 +250,17 @@ body {
         text-align: center; /* Align text to the center */
       }
   }
+
+.overlapping_items {
+  display: flex;
+  position: relative; /* Needed for absolute positioning inside */
+  align-items: center;  /* Align items vertically */
+  justify-content: center; /* Align items horizontally */
+}
+
+.overlapping_item {
+  position: absolute; /* Places this div on top */
+  top: 50%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+}
