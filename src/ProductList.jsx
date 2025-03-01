@@ -257,10 +257,10 @@ function ProductList() {
 
     const handleAddToCart = (plant) => {
         console.log("dispatching plant" + plant.name)
-        dispatch(addedToCart(plant));
+        dispatch(addItem(plant));
         setAddedToCart((prevState) => ({
             ...prevState,
-            [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+            [plant.name]: true, // Set the product name as key and value as true to indicate it's added to cart
           }));
     };
 
@@ -292,9 +292,10 @@ function ProductList() {
                 <div className="product-list">
                     {category.plants.map((plant, plantIndex) => (
                     <div className="product-card" key={plantIndex}>
-                        <img className="product-image" src={plant.image} alt={plant.name} />
                         <div className="product-title">{plant.name}</div>
-                        {/*Similarly like the above plant.name show other details like description and cost*/}
+                        <img className="product-image" src={plant.image} alt={plant.name} />
+                        <div className="product-price">{plant.cost}</div>
+                        <div>{plant.description}</div>
                         <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                     </div>
                     ))}
